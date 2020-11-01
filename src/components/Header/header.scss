@@ -1,0 +1,81 @@
+$primary-color: #24292e;
+$secondary-color: #cff;
+$header-size: 80px;
+$tablet-size: 940px;
+
+.header {
+  align-items: center;
+  background-color: $primary-color;
+  color: #fff;
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+
+  .link-to-home {
+    text-decoration: none;
+    color: #fff;
+  }
+
+  .header-center {
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    width: 300px;
+  }
+
+  .github-logo {
+    width: 50px;
+  }
+
+  .finder-text {
+    color: $secondary-color;
+    font-style: italic;
+  }
+  .header-search-form {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    right: 10px;
+
+    .search-bar {
+      border-color: transparent;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+      font-size: 20px;
+      padding: 10px;
+      text-align: center;
+      width: 180px;
+    }
+
+    .search-btn {
+      border-color: transparent;
+      background-color: $secondary-color;
+      color: #000;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      position: relative;
+      right: 2px;
+      font-weight: 600;
+      width: 90px;
+      z-index: 1;
+    }
+  }
+}
+
+@media (max-width: #{$tablet-size}) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .header-search-form {
+      position: relative;
+      right: 0;
+      margin-bottom: 10px;
+    }
+  }
+}

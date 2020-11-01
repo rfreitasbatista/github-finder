@@ -1,0 +1,13 @@
+.not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .not-found-text {
+    text-align: center;
+  }
+  .not-found-gif {
+    width: 600px;
+  }
+}

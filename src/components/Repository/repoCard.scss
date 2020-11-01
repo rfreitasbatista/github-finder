@@ -1,0 +1,113 @@
+$primary-color: #24292e;
+$secondary-color: #cff;
+$tablet-size: 940px;
+
+.repository-row {
+  border-top: 1px solid $primary-color;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  .repo-left-side {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    width: 200px;
+
+    .repo-title {
+      font-size: 24px;
+      text-shadow: 2px 2px 2px $secondary-color;
+    }
+
+    .repo-lang-color {
+      border: 1px solid black;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      margin-right: 20px;
+      position: relative;
+    }
+    .repo-language {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    .repo-last-update {
+      border-radius: 10px;
+      color: #fff;
+      background-color: gray;
+      padding: 10px;
+      width: 170px;
+      text-align: center;
+    }
+  }
+
+  .repo-description {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    .description-text {
+      text-align: justify;
+    }
+  }
+
+  .repo-right-side {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+    margin-right: 20px;
+    width: 200px;
+  }
+
+  .repo-access-btn {
+    background-color: $primary-color;
+    border-radius: 10px;
+    color: #fff;
+    padding: 10px;
+  }
+}
+
+@media (max-width: #{$tablet-size}) {
+  .repository-row {
+    .repo-left-side,
+    .repo-right-side,
+    .repo-description {
+      width: 100% !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 !important;
+    }
+
+    .repo-stars {
+      width: 100%;
+      text-align: center;
+    }
+
+    .repo-access-div {
+      width: 100%;
+      margin: 5px 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .repo-access-link {
+      width: 90%;
+      text-decoration: none;
+    }
+
+    .repo-access-btn {
+      width: 100%;
+      padding: 10px 0;
+      margin: 0 auto;
+      font-weight: 700;
+    }
+  }
+}

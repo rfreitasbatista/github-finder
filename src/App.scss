@@ -1,0 +1,19 @@
+$primary-color: #24292e;
+$secondary-color: #cff;
+$header-size: 80px;
+$footer-size: 50px;
+$body-size: calc(100vh - #{$header-size} - #{$footer-size});
+$tablet-size: 940px;
+
+.App {
+  min-width: 300px;
+  background-color: #ffffff;
+}
+
+@media (max-width: #{$tablet-size}) {
+  .instructions-text {
+    width: 80%;
+    text-align: center;
+    margin: 10px auto;
+  }
+} ;
