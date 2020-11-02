@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import githubLogo from '../../assets/images/github-icon-white.jpg';
 import { UserInfoContext } from '../../contexts/UserContext';
 import SearchBar from '../SearchBar/SearchBar';
-import './header.scss';
+import './Header.scss';
 
 function Header() {
   const { resultSuccess } = useContext(UserInfoContext);

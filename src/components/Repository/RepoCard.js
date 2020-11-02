@@ -1,6 +1,6 @@
 import { AiFillStar } from 'react-icons/ai';
 import colors from '../../assets/github-colors.json';
-import './repoCard.scss';
+import './RepoCard.scss';
 
 function getDuration(milli) {
   let minutes = Math.floor(milli / 60000);

@@ -1,4 +1,5 @@
 C:\summer\prototipos\github-user-finder
+├── output.txt
 ├── package-lock.json
 ├── package.json
 ├── public
@@ -21,16 +22,16 @@ C:\summer\prototipos\github-user-finder
    ├── components
    |  ├── EmptyResults
    |  |  ├── EmptyResults.js
-   |  |  └── emptyResults.scss
+   |  |  └── EmptyResults.scss
    |  ├── Footer
-   |  |  ├── footer.scss
+   |  |  ├── Footer.scss
    |  |  └── Footers.js
    |  ├── Header
    |  |  ├── Header.js
-   |  |  └── header.scss
+   |  |  └── Header.scss
    |  ├── Repository
    |  |  ├── RepoCard.js
-   |  |  └── repoCard.scss
+   |  |  └── RepoCard.scss
    |  ├── SearchBar
    |  |  └── SearchBar.js
    |  ├── SearchButton.js
@@ -42,14 +43,15 @@ C:\summer\prototipos\github-user-finder
    ├── index.js
    ├── pages
    |  └── Home
-   |     ├── home.scss
+   |     ├── Home.scss
    |     ├── Home.test.js
    |     └── index.js
    ├── services
    |  └── githubAPI.js
    ├── setupTests.js
    └── _mocks
+      └── github-user.json
 
-directory: 3932 file: 15208
+directory: 3932 file: 15210
 
 ignored: directory (235)

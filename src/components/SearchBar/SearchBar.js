@@ -26,6 +26,7 @@ function SearchBar({ formClass }) {
     event.preventDefault();
     userRepoFetch(userToSearch, noUserFound).then((data) => {
       if (data) {
+        console.log(data)
         setResultSuccess(true);
         setRepoData(data);
         setUserName(userToSearch);

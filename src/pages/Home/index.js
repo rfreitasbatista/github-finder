@@ -5,7 +5,7 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footers';
 import EmptyResults from '../../components/EmptyResults/EmptyResults';
 import SearchBar from '../../components/SearchBar/SearchBar';
-import './home.scss';
+import './Home.scss';
 
 function Home() {
   const { resultSuccess, userToSearch, repoData, warning, userName } = useContext(UserInfoContext);
