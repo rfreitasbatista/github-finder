@@ -105,9 +105,11 @@ Abaixo serão listada as tecnologias que foram utilizadas na aplicação, basta 
    |  |  └── Header.scss
    |  ├── Repository
    |  |  ├── RepoCard.js
-   |  |  └── RepoCard.scss
+   |  |  ├── RepoCard.scss
+   |  |  └── RepoCard.test.js
    |  ├── SearchBar
-   |  |  └── SearchBar.js
+   |  |  ├── SearchBar.js
+   |  |  └── SearchBar.scss
    |  ├── SearchButton.js
    |  └── TextInput.js
    ├── contexts
@@ -121,7 +123,8 @@ Abaixo serão listada as tecnologias que foram utilizadas na aplicação, basta 
    |     ├── Home.test.js
    |     └── index.js
    ├── services
-   |  └── githubAPI.js
+   |  ├── githubAPI.js
+   |  └── renderWithRouter.js
    ├── setupTests.js
    └── _mocks
       └── github-user.json

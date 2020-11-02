@@ -1,5 +1,5 @@
 C:\summer\prototipos\github-user-finder
-├── output.txt
+├── debug.log
 ├── package-lock.json
 ├── package.json
 ├── public
@@ -31,9 +31,11 @@ C:\summer\prototipos\github-user-finder
    |  |  └── Header.scss
    |  ├── Repository
    |  |  ├── RepoCard.js
-   |  |  └── RepoCard.scss
+   |  |  ├── RepoCard.scss
+   |  |  └── RepoCard.test.js
    |  ├── SearchBar
-   |  |  └── SearchBar.js
+   |  |  ├── SearchBar.js
+   |  |  └── SearchBar.scss
    |  ├── SearchButton.js
    |  └── TextInput.js
    ├── contexts
@@ -47,11 +49,12 @@ C:\summer\prototipos\github-user-finder
    |     ├── Home.test.js
    |     └── index.js
    ├── services
-   |  └── githubAPI.js
+   |  ├── githubAPI.js
+   |  └── renderWithRouter.js
    ├── setupTests.js
    └── _mocks
       └── github-user.json
 
-directory: 3932 file: 15210
+directory: 3932 file: 15213
 
 ignored: directory (235)

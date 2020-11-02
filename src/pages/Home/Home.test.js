@@ -164,6 +164,12 @@ describe('O campo aceita somente usernames válidos', () => {
 
 describe('Insere o nome da pessoa usuária e renderiza os dados da pessoa', () => {
   test('Ao receber um username válido, realiza o fetch e traz a mensagem de quantos repositórios encontrou', async () => {
+    const apiResponse = Promise.resolve({
+      json: () => Promise.resolve(githubUser),
+      ok: true,
+    });
+
+    jest.spyOn(global, 'fetch').mockImplementation(() => apiResponse);
     renderWithRouter(<Home />);
 
     const inputField = screen.getByRole('textbox');
@@ -174,10 +180,20 @@ describe('Insere o nome da pessoa usuária e renderiza os dados da pessoa', () =
 
     const successMsg = await screen.findByTestId('found-information');
 
+    expect(fetch).toBeCalled();
+    expect(fetch).toBeCalledWith('https://api.github.com/users/rfreitasbatista/repos', {
+      Accept: 'application/vnd.github.v3+json',
+    });
     expect(successMsg).toBeInTheDocument();
   });
 
   test('Ao receber um username inválido, não realiza nenhuma busca', async () => {
+    const apiResponse = Promise.resolve({
+      json: () => Promise.resolve(githubUser),
+      ok: true,
+    });
+
+    jest.spyOn(global, 'fetch').mockImplementation(() => apiResponse);
     renderWithRouter(<Home />);
 
     const inputField = screen.getByRole('textbox');
@@ -188,6 +204,7 @@ describe('Insere o nome da pessoa usuária e renderiza os dados da pessoa', () =
 
     const successMsg = screen.queryByTestId('found-information');
 
+    expect(fetch).not.toBeCalled();
     expect(successMsg).not.toBeInTheDocument();
   });
 
@@ -209,6 +226,7 @@ describe('Insere o nome da pessoa usuária e renderiza os dados da pessoa', () =
     const successMsg = await screen.findByText(/Found/);
     const zeroCheck = await screen.findByText(/0/);
 
+    expect(fetch).toBeCalled();
     expect(successMsg).toBeInTheDocument();
     expect(zeroCheck).toBeInTheDocument();
   });
@@ -231,6 +249,7 @@ describe('Insere o nome da pessoa usuária e renderiza os dados da pessoa', () =
     const firstMessageCheck = await screen.findByText(/No results were found for/);
     const secondMessageCheck = await screen.findByText(/Please, try again with another username/);
 
+    expect(fetch).toBeCalled();
     expect(firstMessageCheck).toBeInTheDocument();
     expect(secondMessageCheck).toBeInTheDocument();
   });
@@ -250,6 +269,7 @@ describe('Insere o nome da pessoa usuária e renderiza os dados da pessoa', () =
     await userEvent.type(inputField, 'usuarioInexistente');
     await userEvent.click(searchBtn);
 
+    expect(fetch).toBeCalled();
     const successMsg = await screen.findByText(/Found/);
     expect(successMsg).toBeInTheDocument();
 
@@ -280,6 +300,8 @@ describe('Insere o nome da pessoa usuária e renderiza os dados da pessoa', () =
     const stars = screen.getByTestId('repo-stars-0');
     const lastUpdated = screen.getByTestId('repo-last-update-0');
 
+
+    expect(fetch).toBeCalled();
     expect(title).toBeInTheDocument();
     expect(title.innerHTML).toContain('alura');
     expect(language).toBeInTheDocument();
