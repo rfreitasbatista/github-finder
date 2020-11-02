@@ -1,5 +1,5 @@
 import notFound from '../../assets/gifs/notFound.gif';
-import './emptyResults.scss'
+import './EmptyResults.scss'
 
 function EmptyResults({ searchText }) {
   return (
