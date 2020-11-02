@@ -34,8 +34,8 @@ function Home() {
           )}
           {warning && <EmptyResults searchText={userToSearch} />}
           {resultSuccess &&
-            repoData.map((repository) => (
-              <RepoCard repoInfo={repository} key={repository.full_name} />
+            repoData.map((repository, index) => (
+              <RepoCard repoInfo={repository} key={repository.full_name} index={index} />
             ))}
         </div>
       </div>

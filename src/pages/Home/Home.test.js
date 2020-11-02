@@ -1,4 +1,4 @@
-import { findByText, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Home from '.';
 import Provider from '../../contexts/Provider';
@@ -254,5 +254,40 @@ describe('Insere o nome da pessoa usuária e renderiza os dados da pessoa', () =
     expect(successMsg).toBeInTheDocument();
 
     githubUser.forEach((repo) => expect(screen.queryByText(repo.name)).toBeInTheDocument());
+  });
+
+  test('Renderiza as informações de um repositório corretamente', async () => {
+    const apiResponse = Promise.resolve({
+      json: () => Promise.resolve(githubUser),
+      ok: true,
+    });
+
+    jest.spyOn(global, 'fetch').mockImplementation(() => apiResponse);
+
+    renderWithRouter(<Home />);
+    const inputField = screen.getByRole('textbox');
+    const searchBtn = screen.getAllByRole('button')[0];
+
+    await userEvent.type(inputField, 'usuarioInexistente');
+    await userEvent.click(searchBtn);
+
+    const successMsg = await screen.findByText(/Found/);
+    expect(successMsg).toBeInTheDocument();
+
+    const title = screen.getByTestId('repo-title-0');
+    const language = screen.getByTestId('repo-language-0');
+    const description = screen.getByTestId('description-text-0');
+    const stars = screen.getByTestId('repo-stars-0');
+    const lastUpdated = screen.getByTestId('repo-last-update-0');
+
+    expect(title).toBeInTheDocument();
+    expect(title.innerHTML).toContain('alura');
+    expect(language).toBeInTheDocument();
+    expect(language.innerHTML).toContain('JavaScript');
+    expect(lastUpdated).toBeInTheDocument();
+    expect(description).toBeInTheDocument();
+    expect(description.innerHTML).toContain('No description provided');
+    expect(stars).toBeInTheDocument();
+    expect(stars.innerHTML[0]).toContain('0');
   });
 });
