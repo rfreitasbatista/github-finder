@@ -8,7 +8,7 @@ function TextInput({ name, label, onTextChange, value, inputClass }) {
         id={name}
         name={name}
         value={value}
-        onChange={(event) => onTextChange(event.target.value)}
+        onChange={onTextChange}
       />
     </label>
   );

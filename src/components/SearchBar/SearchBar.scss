@@ -1,0 +1,14 @@
+$header-size: 80px;
+$tablet-size: 940px;
+
+.invalid-username {
+  background-color: rgb(219, 72, 72);
+  color: white;
+  left: 0;
+  margin: 0;
+  padding: 20px;
+  position: fixed;
+  text-align: center;
+  top: $header-size;
+  width: 100vw;
+}

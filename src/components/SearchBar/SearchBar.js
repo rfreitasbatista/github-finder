@@ -3,6 +3,7 @@ import TextInput from '../TextInput';
 import SearchButton from '../SearchButton';
 import { UserInfoContext } from '../../contexts/UserContext';
 import { userRepoFetch } from '../../services/githubAPI';
+import './SearchBar.scss';
 
 function SearchBar({ formClass }) {
   const {
@@ -12,6 +13,8 @@ function SearchBar({ formClass }) {
     setWarning,
     setResultSuccess,
     setUserName,
+    invalidText,
+    setInvalidText,
   } = useContext(UserInfoContext);
 
   const noUserFound = () => {
@@ -22,20 +25,34 @@ function SearchBar({ formClass }) {
     }, 5000);
   };
 
+  const handleChange = (event) => {
+    setUserToSearch(event.target.value);
+    if (event.target.value.match(/^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i)) {
+      setInvalidText(false);
+    } else {
+      setInvalidText(true);
+    }
+  };
+
   const getUserRepos = (event) => {
     event.preventDefault();
-    userRepoFetch(userToSearch, noUserFound).then((data) => {
-      if (data) {
-        console.log(data)
-        setResultSuccess(true);
-        setRepoData(data);
-        setUserName(userToSearch);
-        setUserToSearch('');
-      } else {
-        setResultSuccess(false);
-        noUserFound();
-      }
-    });
+    if (userToSearch.match(/^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i)) {
+      setInvalidText(false);
+      userRepoFetch(userToSearch, noUserFound).then((data) => {
+        if (data) {
+          console.log(data);
+          setResultSuccess(true);
+          setRepoData(data);
+          setUserName(userToSearch);
+          setUserToSearch('');
+        } else {
+          setResultSuccess(false);
+          noUserFound();
+        }
+      });
+    } else {
+      setInvalidText(true);
+    }
   };
 
   return (
@@ -44,7 +61,7 @@ function SearchBar({ formClass }) {
         inputClass="search-bar"
         name="user"
         value={userToSearch}
-        onTextChange={setUserToSearch}
+        onTextChange={(event) => handleChange(event)}
         label=""
       />
       <SearchButton
@@ -53,6 +70,7 @@ function SearchBar({ formClass }) {
         onBtnClick={getUserRepos}
         title="Search"
       />
+      {invalidText && <p className="invalid-username">Please, insert a valid username</p>}
     </form>
   );
 }
