@@ -25,7 +25,7 @@ function Home() {
           )}
 
           {resultSuccess && (
-            <p className="found-information">
+            <p className="found-information" data-testid="found-information">
               {`Found `}
               <span className="important-user-information">{repoData.length}</span>{' '}
               {` repositories at `}

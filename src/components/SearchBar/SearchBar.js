@@ -16,7 +16,6 @@ function SearchBar({ formClass }) {
     invalidText,
     setInvalidText,
   } = useContext(UserInfoContext);
-
   const noUserFound = () => {
     setWarning(true);
     setTimeout(() => {
@@ -40,7 +39,6 @@ function SearchBar({ formClass }) {
       setInvalidText(false);
       userRepoFetch(userToSearch, noUserFound).then((data) => {
         if (data) {
-          console.log(data);
           setResultSuccess(true);
           setRepoData(data);
           setUserName(userToSearch);
