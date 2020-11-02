@@ -166,7 +166,7 @@ describe('Insere o nome da pessoa usuária e renderiza os dados da pessoa', () =
   test('Ao receber um username válido, realiza o fetch e traz a mensagem de quantos repositórios encontrou', async () => {
     renderWithRouter(<Home />);
 
-    /* const inputField = screen.getByRole('textbox');
+    const inputField = screen.getByRole('textbox');
     const searchBtn = screen.getAllByRole('button')[0];
 
     await userEvent.type(inputField, 'rfreitasbatista');
@@ -174,7 +174,7 @@ describe('Insere o nome da pessoa usuária e renderiza os dados da pessoa', () =
 
     const successMsg = await screen.findByTestId('found-information');
 
-    expect(successMsg).toBeInTheDocument(); */
+    expect(successMsg).toBeInTheDocument();
   });
 
   test('Ao receber um username inválido, não realiza nenhuma busca', async () => {
@@ -197,7 +197,7 @@ describe('Insere o nome da pessoa usuária e renderiza os dados da pessoa', () =
       ok: true,
     });
 
-    const mockedValue = jest.spyOn(global, 'fetch').mockImplementation(() => apiResponse);
+    jest.spyOn(global, 'fetch').mockImplementation(() => apiResponse);
 
     renderWithRouter(<Home />);
     const inputField = screen.getByRole('textbox');
