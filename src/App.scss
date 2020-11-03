@@ -4,11 +4,3 @@ $tablet-size: 940px;
   min-width: 300px;
   background-color: #ffffff;
 }
-
-@media (max-width: #{$tablet-size}) {
-  .instructions-text {
-    width: 80%;
-    text-align: center;
-    margin: 10px auto;
-  }
-} ;
