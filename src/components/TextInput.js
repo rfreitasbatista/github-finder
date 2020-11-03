@@ -1,3 +1,5 @@
+import React from 'react';
+
 function TextInput({ name, label, onTextChange, value, inputClass }) {
   return (
     <label htmlFor={name}>

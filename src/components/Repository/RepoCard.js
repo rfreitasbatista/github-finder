@@ -1,21 +1,29 @@
+import React from 'react';
 import { AiFillStar } from 'react-icons/ai';
 import colors from '../../assets/github-colors.json';
 import './RepoCard.scss';
 
 export function getDuration(milli) {
-  let minutes = Math.floor(milli / 60000);
-  let hours = Math.round(minutes / 60);
-  let days = Math.round(hours / 24);
+  const minutes = Math.floor(milli / 60000);
+  const hours = Math.round(minutes / 60);
+  const days = Math.round(hours / 24);
 
-  return (days && { days: days }) || (hours && { hours: hours }) || { minutes: minutes };
+  return (days && { days }) || (hours && { hours }) || { minutes };
 }
 
 function RepoCard({
-  repoInfo: { name, description, stargazers_count, language, updated_at, html_url },
+  repoInfo: {
+    name,
+    description,
+    stargazers_count,
+    language,
+    updated_at,
+    html_url,
+  },
   index,
 }) {
   const updated = getDuration(Date.parse(updated_at)).days;
-  const present_date = getDuration(Date.parse(new Date())).days;
+  const presentDate = getDuration(Date.parse(new Date())).days;
   return (
     <div className="repository-row">
       <div className="repo-left-side">
@@ -24,27 +32,37 @@ function RepoCard({
         </p>
         {language && (
           <div className="repo-language">
-            <div className="repo-lang-color" style={{ backgroundColor: colors[language] }}></div>
+            <div
+              className="repo-lang-color"
+              style={{ backgroundColor: colors[language] }}
+            />
             <p data-testid={`repo-language-${index}`}>{language}</p>
           </div>
         )}
-        <p className="repo-last-update" data-testid={`repo-last-update-${index}`}>{`Updated ${
-          present_date - updated
-        } days ago`}</p>
+        <p
+          className="repo-last-update"
+          data-testid={`repo-last-update-${index}`}
+        >{`Updated ${presentDate - updated} days ago`}</p>
       </div>
       {description && (
         <div className="repo-description">
           <p>
             <strong>Brief description:</strong>
           </p>
-          <p className="description-text" data-testid={`description-text-${index}`}>
+          <p
+            className="description-text"
+            data-testid={`description-text-${index}`}
+          >
             {description}
           </p>
         </div>
       )}
       {!description && (
         <div className="repo-description">
-          <p className="description-text" data-testid={`description-text-${index}`}>
+          <p
+            className="description-text"
+            data-testid={`description-text-${index}`}
+          >
             No description provided
           </p>
         </div>
@@ -59,7 +77,7 @@ function RepoCard({
             data-testid={`repo-access-link-${index}`}
             href={html_url}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             <button className="repo-access-btn">Acess this repository</button>
           </a>

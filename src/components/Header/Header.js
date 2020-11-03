@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import githubLogo from '../../assets/images/github-icon-white.jpg';
 import { UserInfoContext } from '../../contexts/UserContext';
@@ -12,7 +12,7 @@ function Header() {
     <header className="header">
       <Link to="/" className="link-to-home">
         <div className="header-center">
-          <img src={githubLogo} className="github-logo" alt="Github Logo"></img>
+          <img src={githubLogo} className="github-logo" alt="Github Logo" />
           <h1>
             Github <span className="finder-text">Finder</span>
           </h1>
