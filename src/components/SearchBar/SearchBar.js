@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import TextInput from '../TextInput';
 import SearchButton from '../SearchButton';
 import { UserInfoContext } from '../../contexts/UserContext';
@@ -68,9 +69,15 @@ function SearchBar({ formClass }) {
         onBtnClick={getUserRepos}
         title="Search"
       />
-      {invalidText && <p className="invalid-username">Please, insert a valid username</p>}
+      {invalidText && (
+        <p className="invalid-username">Please, insert a valid username</p>
+      )}
     </form>
   );
 }
+
+SearchBar.propTypes = {
+  formClass: PropTypes.string,
+};
 
 export default SearchBar;
