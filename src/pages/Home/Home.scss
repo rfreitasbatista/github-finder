@@ -64,7 +64,8 @@ $tablet-size: 940px;
   }
 }
 
-@media (max-width: #{$tablet-size}) {
+@media ( max-width : #{$tablet-size} ) {
+
   .home {
     margin-top: 130px;
   }

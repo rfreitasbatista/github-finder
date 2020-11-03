@@ -2,13 +2,14 @@ $tablet-size: 940px;
 
 .App {
   min-width: 300px;
-  background-color: #ffffff;
+  background-color: white;
 }
 
-@media (max-width: #{$tablet-size}) {
+@media ( max-width : #{$tablet-size} ) {
+
   .instructions-text {
     width: 80%;
     text-align: center;
     margin: 10px auto;
   }
-} ;
+}

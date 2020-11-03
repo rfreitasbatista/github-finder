@@ -26,10 +26,10 @@ function Home() {
 
           {resultSuccess && (
             <p className="found-information" data-testid="found-information">
-              {`Found `}
+              {'Found '}
               <span className="important-user-information">{repoData.length}</span>{' '}
-              {` repositories at `}
-              <span className="important-user-information">{userName}</span> {`'s account.`}
+              {' repositories at '}
+              <span className="important-user-information">{userName}</span> {" 's account."}
             </p>
           )}
           {warning && <EmptyResults searchText={userToSearch} />}
