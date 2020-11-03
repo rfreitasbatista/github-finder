@@ -70,7 +70,7 @@ $tablet-size: 940px;
   .repo-access-btn {
     background-color: $primary-color;
     border-radius: 10px;
-    color:white;
+    color: white;
     padding: 10px;
   }
 }
@@ -79,8 +79,8 @@ $tablet-size: 940px;
 
   .repository-row {
 
-    .repo-left-side , 
-    .repo-right-side , 
+    .repo-left-side ,
+    .repo-right-side ,
     .repo-description {
       width: 100% !important;
       display: flex;

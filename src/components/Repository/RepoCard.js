@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { AiFillStar } from 'react-icons/ai';
 import colors from '../../assets/github-colors.json';
 import './RepoCard.scss';
@@ -86,5 +87,17 @@ function RepoCard({
     </div>
   );
 }
+
+RepoCard.propTypes = {
+  repoInfo: PropTypes.shape({
+    name: PropTypes.string,
+    description: PropTypes.string,
+    stargazers_count: PropTypes.number,
+    language: PropTypes.string,
+    updated_at: PropTypes.string,
+    html_url: PropTypes.string,
+  }),
+  index: PropTypes.number,
+};
 
 export default RepoCard;

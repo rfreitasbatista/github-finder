@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import notFound from '../../assets/gifs/notFound.gif';
 import './EmptyResults.scss';
 
@@ -13,5 +14,9 @@ function EmptyResults({ searchText }) {
     </section>
   );
 }
+
+EmptyResults.propTypes = {
+  searchText: PropTypes.string,
+};
 
 export default EmptyResults;
