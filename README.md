@@ -1,6 +1,6 @@
 # Github Finder
 
-Projeto criado para atestar capacidade técnica. O objetivo é buscar repositórios de usuários do Github e exibir suas informações em uma aplicação responsiva.
+Projeto criado para buscar repositórios de usuários do Github e exibir suas informações em uma aplicação responsiva.
 
 ## Instruções de uso
 
